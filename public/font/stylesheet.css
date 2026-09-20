@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'GFF Latin';
+    src: url('/font/GFF-Latin-Thin.woff2') format('woff2'),
+         url('/font/GFF-Latin-Thin.woff') format('woff'),
+         url('/font/GFF-Latin-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap; 
+}
+
+@font-face {
+    font-family: 'GFF Latin';
+    src: url('/font/GFF-Latin-Regular.woff2') format('woff2'),
+         url('/font/GFF-Latin-Regular.woff') format('woff'),
+         url('/font/GFF-Latin-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap; 
+}
+
+@font-face {
+    font-family: 'GFF Latin';
+    src: url('/font/GFF-Latin-Medium.woff2') format('woff2'),
+         url('/font/GFF-Latin-Medium.woff') format('woff'),
+         url('/font/GFF-Latin-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GFF Latin';
+    src: url('/font/GFF-Latin-Bold.woff2') format('woff2'),
+         url('/font/GFF-Latin-Bold.woff') format('woff'),
+         url('/font/GFF-Latin-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
