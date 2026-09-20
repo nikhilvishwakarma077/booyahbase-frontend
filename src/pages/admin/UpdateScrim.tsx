@@ -7,7 +7,7 @@ import { getOrganizers } from "../../services/organizer.service";
 import { getScrimById } from "../../services/scrim.service";
 
 import type { IOrganizer } from "../../types/organizer";
-import type { IScrim, IScrimVariant } from "../../types/scrim";
+import type {  IScrimVariant } from "../../types/scrim";
 
 type PrizeDistribution = {
   position: string;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import type { ChangeEvent, FormEvent } from "react";
+import type {  FormEvent } from "react";
 
 import api from "../../services/api";
 import { getOrganizers } from "../../services/organizer.service";

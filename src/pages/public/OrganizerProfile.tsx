@@ -611,24 +611,24 @@ const Info = ({
   </div>
 );
 
-const Feature = ({ label }: { label: string }) => (
-  <span
-    className="
-      border
-      border-white/10
-      bg-white/[0.03]
-      px-2.5
-      py-1
-      text-[9px]
-      font-bold
-      uppercase
-      tracking-wider
-      text-white/45
-    "
-  >
-    {label}
-  </span>
-);
+// const Feature = ({ label }: { label: string }) => (
+//   <span
+//     className="
+//       border
+//       border-white/10
+//       bg-white/[0.03]
+//       px-2.5
+//       py-1
+//       text-[9px]
+//       font-bold
+//       uppercase
+//       tracking-wider
+//       text-white/45
+//     "
+//   >
+//     {label}
+//   </span>
+// );
 
 const ContactItem = ({
   label,
