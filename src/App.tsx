@@ -10,8 +10,6 @@ import CreateScrim from "./pages/admin/CreateScrim";
 import ProtectedRoute from "./components/admin/ProtectedRoute";
 import AdminLogin from "./pages/admin/AdminLogin";
 import CreateOrganizer from "./pages/admin/CreateOrganizer";
-import ScrimPreview from "./pages/public/ScremPreview";
-import Create from "./pages/public/Create";
 import UpdateScrim from "./pages/admin/UpdateScrim";
 import UpdateOrganizer from "./pages/admin/UpdateOrganizer";
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -29,8 +27,6 @@ function App() {
 
         <Route path="/organizers" element={<Organizers />} />
         <Route path="/organizers/:id" element={<OrganizerProfile />} />
-        <Route path="/preview" element={<ScrimPreview />} />
-        <Route path="/create" element={<Create />} />
       </Route>
 
 
