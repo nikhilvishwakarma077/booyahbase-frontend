@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu, Search, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import Logo from "../../../src/assets/images/Logo.png"
+import Logo from "../../../assets/images/Logo.png"
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -13,7 +13,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="relative z-50 px-4 pt-4 sm:px-6 lg:px-9">
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-9">
       <nav
         className="
           mx-auto

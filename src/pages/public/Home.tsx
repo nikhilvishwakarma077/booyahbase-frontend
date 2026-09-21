@@ -1,15 +1,15 @@
-import AboutSection from "../../components/home/AboutSection"
 import CTASection from "../../components/home/CTASection"
 import FeaturesSection from "../../components/home/FeaturesSection"
 import Hero from "../../components/home/Hero"
 import HowItWorksSection from "../../components/home/HowItWorksSection"
+import OrganizerMarquee from "../../components/home/OrganizersMarquee"
 import ScrimsSection from "../../components/home/ScrimsSection"
 
 const Home = () => {
     return (
         <>
             <Hero />
-            <AboutSection />
+            <OrganizerMarquee />
             <FeaturesSection />
             <ScrimsSection />
             <HowItWorksSection />

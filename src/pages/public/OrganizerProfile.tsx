@@ -733,44 +733,44 @@ const Info = ({
 //   </span>
 // );
 
-//const ContactItem = ({
+// const ContactItem = ({
 //  icon,
 //  label,
 //  value,
-//}: {
+// }: {
 //  icon: React.ReactNode;
 //  label: string;
 //  value: string;
-//}) => {
+// }) => {
 //  return (
 //    <div
 //      className="
- //       flex
-  //      min-w-0
-   //     items-center
-  //      gap-3
-    //    border
-   //     border-white/10
-   //     bg-black/20
-   //     px-4
-   //     py-3
-    //  "
-  //  >
-  //    <span className="shrink-0 text-lg text-white/70">
-   //     {icon}
- //     </span>
+//        flex
+//        min-w-0
+//        items-center
+//        gap-3
+//        border
+//        border-white/10
+//        bg-black/20
+//        px-4
+//        py-3
+//      "
+//    >
+//      <span className="shrink-0 text-lg text-white/70">
+//        {icon}
+//      </span>
 
-    //  <div className="min-w-0">
-     //   <p className="text-[9px] font-bold uppercase tracking-wider text-white/30">
-        //  {label}
-      //  </p>
+//      <div className="min-w-0">
+//        <p className="text-[9px] font-bold uppercase tracking-wider text-white/30">
+//          {label}
+//        </p>
 
-       // <p className="mt-1 truncate text-xs font-medium text-white/70">
-        //  {value}
-     //   </p>
-    //  </div>
-  //  </div>
- // );
-//};
+//        <p className="mt-1 truncate text-xs font-medium text-white/70">
+//          {value}
+//        </p>
+//      </div>
+//    </div>
+//  );
+// };
 
 export default OrganizerProfile;

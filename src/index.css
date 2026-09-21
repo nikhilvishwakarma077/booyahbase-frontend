@@ -38,3 +38,21 @@ button,
 a {
   -webkit-tap-highlight-color: transparent;
 }
+
+@keyframes organizer-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-organizer-marquee {
+  animation: organizer-marquee 35s linear infinite;
+}
+
+.animate-organizer-marquee:hover {
+  animation-play-state: paused;
+}
