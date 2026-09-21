@@ -14,7 +14,6 @@ const Organizers = () => {
     const fetchOrganizers = async () => {
       try {
         const data = await getOrganizers();
-        console.log(data[0].orgImg)
         setOrganizers(data);
       } catch (error) {
         console.error("Failed to fetch organizers:", error);

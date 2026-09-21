@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-
+import { FaEnvelope, FaInstagram, FaDiscord, FaYoutube } from "react-icons/fa";
 import { getOrganizerById } from "../../services/organizer.service";
 import { getScrims } from "../../services/scrim.service";
 
@@ -15,6 +15,7 @@ const OrganizerProfile = () => {
   const [organizer, setOrganizer] = useState<IOrganizer | null>(null);
   const [organizerScrims, setOrganizerScrims] = useState<IScrim[]>([]);
   const [loading, setLoading] = useState(true);
+  const [showDescription, setShowDescription] = useState(false);
 
   useEffect(() => {
     if (!id) return;
@@ -31,7 +32,6 @@ const OrganizerProfile = () => {
         const organizerScrims = scrimsData.filter(
           (scrim: IScrim) => scrim.organizerId._id === id
         );
-        console.log(organizerData)
         setOrganizerScrims(organizerScrims);
       } catch (error) {
         console.error("Failed to fetch organizer:", error);
@@ -95,13 +95,13 @@ const OrganizerProfile = () => {
   /*
    * Organizer stats
    */
-  const openScrims = organizerScrims.filter((scrim) => {
-    const hasAvailableSlots = scrim.variants.some(
-      (variant) => variant.availableSlots > 0
-    );
+  // const openScrims = organizerScrims.filter((scrim) => {
+  //   const hasAvailableSlots = scrim.variants.some(
+  //     (variant) => variant.availableSlots > 0
+  //   );
 
-    return scrim.published && hasAvailableSlots;
-  }).length;
+  //   return scrim.published && hasAvailableSlots;
+  // }).length;
 
   const totalPrizePool = organizerScrims.reduce((sum, scrim) => {
     const highestPrize = Math.max(
@@ -160,46 +160,63 @@ const OrganizerProfile = () => {
           <div className="flex flex-col gap-7 sm:flex-row sm:items-center">
 
             {/* Initial */}
-            <div
-              className="
-                flex
-                h-20
-                w-20
-                shrink-0
-                items-center
-                justify-center
-                border
-                border-white/20
-                bg-white
-                text-2xl
-                font-black
-                text-black
-              "
-            >
-              {organizer.name.charAt(0).toUpperCase()}
-            </div>
+            {organizer.orgImg ? (
+              <img
+                src={`/scrimsImg/${organizer.orgImg}`}
+                alt={organizer.name}
+                className="
+      h-20
+      w-20
+      shrink-0
+      border
+      border-white/20
+      bg-white
+      object-cover
+    "
+              />
+            ) : (
+              <div
+                className="
+      flex
+      h-20
+      w-20
+      shrink-0
+      items-center
+      justify-center
+      border
+      border-white/20
+      bg-white
+      text-2xl
+      font-black
+      text-black
+    "
+              >
+                {organizer.name.charAt(0).toUpperCase()}
+              </div>
+            )}
 
             {/* Details */}
-            <div>
+            <div className="min-w-0">
               <div className="flex flex-wrap items-center gap-3">
-                <h1 className="text-3xl font-black uppercase sm:text-5xl">
+                <h1 className="break-words text-3xl font-black uppercase leading-tight sm:text-5xl">
                   {organizer.name}
                 </h1>
 
                 {organizer.isVerified && (
                   <span
                     className="
-                      border
-                      border-white/20
-                      bg-white/[0.04]
-                      px-3
-                      py-1
-                      text-[10px]
-                      font-bold
-                      uppercase
-                      tracking-wider
-                      text-white/70
-                    "
+          shrink-0
+          border
+          border-white/20
+          bg-white/[0.04]
+          px-3
+          py-1
+          text-[10px]
+          font-bold
+          uppercase
+          tracking-wider
+          text-white/70
+        "
                   >
                     ✓ Verified
                   </span>
@@ -207,11 +224,39 @@ const OrganizerProfile = () => {
               </div>
 
               {organizer.description && (
-                <p className="mt-3 max-w-2xl text-sm leading-6 text-white/40">
-                  {organizer.description}
-                </p>
+                <div className="mt-3 max-w-2xl">
+                  <p
+                    className={`
+          break-words
+          text-sm
+          leading-6
+          text-white/40
+          ${!showDescription ? "line-clamp-3 sm:line-clamp-4" : ""}
+        `}
+                  >
+                    {organizer.description}
+                  </p>
+
+                  <button
+                    type="button"
+                    onClick={() => setShowDescription((prev) => !prev)}
+                    className="
+          mt-2
+          text-[10px]
+          font-bold
+          uppercase
+          tracking-[0.15em]
+          text-white/50
+          transition-colors
+          hover:text-white
+        "
+                  >
+                    {showDescription ? "Show Less ↑" : "Read More →"}
+                  </button>
+                </div>
               )}
             </div>
+
           </div>
         </section>
 
@@ -222,10 +267,10 @@ const OrganizerProfile = () => {
             value={organizerScrims.length.toString()}
           />
 
-          <Stat
+          {/* <Stat
             label="Open Scrims"
             value={openScrims.toString()}
-          />
+          /> */}
 
           <Stat
             label="Prize Pool"
@@ -234,56 +279,114 @@ const OrganizerProfile = () => {
         </section>
 
         {/* Contact Information */}
-        {organizer.contactInformation && (
-          <section
-            className="
-              mt-4
-              border
-              border-white/10
-              bg-[#101010]
-              p-6
-              sm:p-7
+        {organizer.contactInformation &&
+          (organizer.contactInformation.email ||
+            organizer.contactInformation.instagram ||
+            organizer.contactInformation.discord ||
+            organizer.contactInformation.telegram) && (
+            <section
+              className="
+        mt-4
+        border
+        border-white/10
+        bg-[#101010]
+        p-6
+        sm:p-7
+      "
+            >
+              <div className="flex items-center gap-3">
+                <div className="h-1 w-8 bg-white" />
+
+                <p className="text-xs font-bold uppercase tracking-[0.25em] text-white/40">
+                  Contact
+                </p>
+              </div>
+
+              <div className="mt-5 flex flex-wrap gap-3">
+                {organizer.contactInformation.email && (
+                  <a
+                    href={`mailto:${organizer.contactInformation.email}`}
+                    aria-label="Email"
+                    className="
+              flex h-11 w-11
+              items-center justify-center
+              border border-white/10
+              bg-black/20
+              text-lg text-white/50
+              transition-colors
+              hover:border-white/30
+              hover:text-white
             "
-          >
-            <div className="flex items-center gap-3">
-              <div className="h-1 w-8 bg-white" />
+                  >
+                    <FaEnvelope />
+                  </a>
+                )}
 
-              <p className="text-xs font-bold uppercase tracking-[0.25em] text-white/40">
-                Contact Information
-              </p>
-            </div>
+                {organizer.contactInformation.instagram && (
+                  <a
+                    href={organizer.contactInformation.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    className="
+              flex h-11 w-11
+              items-center justify-center
+              border border-white/10
+              bg-black/20
+              text-lg text-white/50
+              transition-colors
+              hover:border-white/30
+              hover:text-white
+            "
+                  >
+                    <FaInstagram />
+                  </a>
+                )}
 
-            <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              {organizer.contactInformation.email && (
-                <ContactItem
-                  label="Email"
-                  value={organizer.contactInformation.email}
-                />
-              )}
+                {organizer.contactInformation.discord && (
+                  <a
+                    href={organizer.contactInformation.discord}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Discord"
+                    className="
+              flex h-11 w-11
+              items-center justify-center
+              border border-white/10
+              bg-black/20
+              text-lg text-white/50
+              transition-colors
+              hover:border-white/30
+              hover:text-white
+            "
+                  >
+                    <FaDiscord />
+                  </a>
+                )}
 
-              {organizer.contactInformation.instagram && (
-                <ContactItem
-                  label="Instagram"
-                  value={organizer.contactInformation.instagram}
-                />
-              )}
-
-              {organizer.contactInformation.discord && (
-                <ContactItem
-                  label="Discord"
-                  value={organizer.contactInformation.discord}
-                />
-              )}
-
-              {organizer.contactInformation.telegram && (
-                <ContactItem
-                  label="Telegram"
-                  value={organizer.contactInformation.telegram}
-                />
-              )}
-            </div>
-          </section>
-        )}
+                {organizer.contactInformation.telegram && (
+                  <a
+                    href={organizer.contactInformation.telegram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="YouTube"
+                    className="
+              flex h-11 w-11
+              items-center justify-center
+              border border-white/10
+              bg-black/20
+              text-lg text-white/50
+              transition-colors
+              hover:border-white/30
+              hover:text-white
+            "
+                  >
+                    <FaYoutube />
+                  </a>
+                )}
+              </div>
+            </section>
+          )}
 
         {/* Scrims */}
         <section className="mt-14">
@@ -631,32 +734,43 @@ const Info = ({
 // );
 
 const ContactItem = ({
+  icon,
   label,
   value,
 }: {
+  icon: React.ReactNode;
   label: string;
   value: string;
-}) => (
-  <div
-    className="
-      border
-      border-white/10
-      bg-black/20
-      px-4
-      py-3
-      transition-colors
-      duration-300
-      hover:border-white/20
-    "
-  >
-    <p className="text-[9px] uppercase tracking-wider text-white/25">
-      {label}
-    </p>
+}) => {
+  return (
+    <div
+      className="
+        flex
+        min-w-0
+        items-center
+        gap-3
+        border
+        border-white/10
+        bg-black/20
+        px-4
+        py-3
+      "
+    >
+      <span className="shrink-0 text-lg text-white/70">
+        {icon}
+      </span>
 
-    <p className="mt-1 truncate text-sm font-bold">
-      {value}
-    </p>
-  </div>
-);
+      <div className="min-w-0">
+        <p className="text-[9px] font-bold uppercase tracking-wider text-white/30">
+          {label}
+        </p>
+
+        <p className="mt-1 truncate text-xs font-medium text-white/70">
+          {value}
+        </p>
+      </div>
+    </div>
+  );
+};
 
 export default OrganizerProfile;

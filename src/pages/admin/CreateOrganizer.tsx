@@ -173,7 +173,7 @@ const CreateOrganizer = () => {
               />
 
               <input
-                name="telegram"
+                name="youtube"
                 value={form.telegram}
                 onChange={handleChange}
                 placeholder="Telegram"
