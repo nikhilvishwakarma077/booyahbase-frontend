@@ -73,14 +73,14 @@ const ManageOrganizers = () => {
           <div className="flex gap-2">
             <button
               onClick={() => navigate("/admin/dashboard")}
-              className="border border-white/10 px-4 py-3 text-sm font-bold uppercase text-white/70 hover:text-white"
+              className="border cursor-pointer border-white/10 px-4 py-3 text-sm font-bold uppercase text-white/70 hover:text-white"
             >
               ← Dashboard
             </button>
 
             <button
               onClick={() => navigate("/admin/organizers/create")}
-              className="bg-white px-4 py-3 text-sm font-bold uppercase text-black"
+              className="bg-white cursor-pointer px-4 py-3 text-sm font-bold uppercase text-black"
             >
               + Create
             </button>
@@ -110,14 +110,14 @@ const ManageOrganizers = () => {
                       `/admin/organizers/${organizer._id}/edit`
                     )
                   }
-                  className="border border-white/10 px-4 py-2 text-xs font-bold uppercase"
+                  className="border cursor-pointer border-white/10 px-4 py-2 text-xs font-bold uppercase"
                 >
                   Edit
                 </button>
 
                 <button
                   onClick={() => handleDelete(organizer._id)}
-                  className="border border-red-500/30 px-4 py-2 text-xs font-bold uppercase text-red-400"
+                  className="border cursor-pointer border-red-500/30 px-4 py-2 text-xs font-bold uppercase text-red-400"
                 >
                   Delete
                 </button>

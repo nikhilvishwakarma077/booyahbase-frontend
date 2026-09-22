@@ -41,9 +41,9 @@ const CreateScrim = () => {
   const [tier, setTier] = useState("T2");
   const [whatsappNumber, setWhatsappNumber] = useState("");
 
-  const [rules, setRules] = useState("");
+  const [rules, setRules] = useState("No Hack");
   const [importantInformation, setImportantInformation] =
-    useState("");
+    useState("Join 10 mins before the match starts");
 
   const [published, setPublished] = useState(true);
 

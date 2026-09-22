@@ -22,14 +22,14 @@ const AdminDashboard = () => {
             <div className="mt-5 space-y-3">
               <button
                 onClick={() => navigate("/admin/scrims/create")}
-                className="w-full bg-white px-4 py-3 text-sm font-bold uppercase text-black"
+                className="w-full bg-white cursor-pointer px-4 py-3 text-sm font-bold uppercase text-black"
               >
                 Create Scrim
               </button>
 
               <button
                 onClick={() => navigate("/admin/scrims")}
-                className="w-full border border-white/10 px-4 py-3 text-sm font-bold uppercase"
+                className="w-full border cursor-pointer border-white/10 px-4 py-3 text-sm font-bold uppercase"
               >
                 Manage Scrims
               </button>
@@ -43,14 +43,14 @@ const AdminDashboard = () => {
             <div className="mt-5 space-y-3">
               <button
                 onClick={() => navigate("/admin/organizers/create")}
-                className="w-full bg-white px-4 py-3 text-sm font-bold uppercase text-black"
+                className="w-full cursor-pointer bg-white px-4 py-3 text-sm font-bold uppercase text-black"
               >
                 Create Organizer
               </button>
 
               <button
                 onClick={() => navigate("/admin/organizers")}
-                className="w-full border border-white/10 px-4 py-3 text-sm font-bold uppercase"
+                className="w-full cursor-pointer border border-white/10 px-4 py-3 text-sm font-bold uppercase"
               >
                 Manage Organizers
               </button>

@@ -137,7 +137,7 @@ const ScrimsSection = () => {
 
                     {/* Scrim Name */}
                     <div className="mt-4 sm:mt-5">
-                      <h3 className="break-words text-base font-bold tracking-tight text-white sm:text-lg md:text-xl">
+                      <h3 className="break-words uppercase text-base font-bold tracking-tight text-white sm:text-lg md:text-xl">
                         {scrim.name}
                       </h3>
 
