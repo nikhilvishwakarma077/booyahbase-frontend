@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FaArrowUp, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaArrowUp, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   const [showTopButton, setShowTopButton] = useState(false);
@@ -78,7 +78,7 @@ const Footer = () => {
             {/* Socials */}
             <div className="mt-6 flex items-center gap-2">
               <a
-                href="#"
+                href="https://instagram.com/flashcodes.dev"
                 aria-label="Instagram"
                 className="
                   flex h-10 w-10
@@ -94,7 +94,7 @@ const Footer = () => {
                 <FaInstagram />
               </a>
 
-              <a
+              {/* <a
                 href="#"
                 aria-label="YouTube"
                 className="
@@ -109,7 +109,7 @@ const Footer = () => {
                 "
               >
                 <FaYoutube />
-              </a>
+              </a> */}
             </div>
           </div>
 
@@ -163,7 +163,7 @@ const Footer = () => {
           </p>
 
           <p className="text-[10px] uppercase tracking-wider text-white/20">
-            Find. Join. Booyah.
+            Find. Join. Compete.
           </p>
         </div>
       </div>

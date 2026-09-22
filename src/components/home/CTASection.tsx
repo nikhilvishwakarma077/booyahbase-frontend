@@ -1,5 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import CTAImg from "../../../src/assets/images/image6.jpg"
 const CTASection = () => {
+
+  const navigate = useNavigate()
+
   return (
     <section className="bg-[#090a0d] relative px-6 py-24 text-white sm:px-10 lg:px-16">
       <div
@@ -69,8 +73,10 @@ const CTASection = () => {
             {/* Buttons */}
             <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
               <button
+              onClick={()=>{navigate("/scrims")}}
                 className="
                   bg-white
+                  cursor-pointer
                   px-7
                   py-4
                   text-sm
@@ -87,7 +93,9 @@ const CTASection = () => {
               </button>
 
               <button
+              onClick={()=>{navigate("/organizers")}}
                 className="
+                cursor-pointer
                   border
                   border-white/15
                   bg-white/[0.03]
