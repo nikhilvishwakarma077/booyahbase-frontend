@@ -16,6 +16,7 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import ManageScrims from "./pages/admin/ManageScrims";
 import ManageOrganizers from "./pages/admin/ManageOrganizers";
 import NotFound from "./pages/public/NotFound";
+import Tournaments from "./pages/tournaments/Tournaments";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
 
         <Route path="/organizers" element={<Organizers />} />
         <Route path="/organizers/:id" element={<OrganizerProfile />} />
+        <Route path="/tournaments" element={<Tournaments />} />
       </Route>
 
 

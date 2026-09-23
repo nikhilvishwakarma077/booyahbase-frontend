@@ -528,10 +528,10 @@ const Scrims = () => {
 
                                       {prizeIndex <
                                         variant.prizeDistribution.length - 1 && (
-                                        <span className="text-white/20">
-                                          |
-                                        </span>
-                                      )}
+                                          <span className="text-white/20">
+                                            |
+                                          </span>
+                                        )}
                                     </span>
                                   )
                                 )}

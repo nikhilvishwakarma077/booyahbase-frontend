@@ -37,7 +37,7 @@ const Navbar = () => {
       >
         {/* Logo */}
         <Link to="/" className="-translate-x-5">
-          <img 
+          <img
             src={Logo}
             className="w-15 md:w-20"
             alt="BooyahBase"
@@ -56,6 +56,9 @@ const Navbar = () => {
 
           <NavItem href="/organizers" active={isActive("/organizers")}>
             Organizers
+          </NavItem>
+          <NavItem href="/tournaments" active={isActive("/tournaments")}>
+            Tournaments
           </NavItem>
         </div>
 
@@ -192,10 +195,9 @@ const NavItem = ({
       transition-all
       lg:px-6
 
-      ${
-        active
-          ? "text-white"
-          : "text-white/50 hover:text-white"
+      ${active
+        ? "text-white"
+        : "text-white/50 hover:text-white"
       }
 
       after:absolute
@@ -207,10 +209,9 @@ const NavItem = ({
       after:transition-all
       after:duration-300
 
-      ${
-        active
-          ? "after:w-5"
-          : "after:w-0 hover:after:w-3"
+      ${active
+        ? "after:w-5"
+        : "after:w-0 hover:after:w-3"
       }
     `}
   >
@@ -244,10 +245,9 @@ const MobileNavItem = ({
       font-medium
       transition-all
 
-      ${
-        active
-          ? "border-white bg-white/[0.05] text-white"
-          : "border-transparent text-white/60 hover:border-white/40 hover:bg-white/[0.03] hover:text-white"
+      ${active
+        ? "border-white bg-white/[0.05] text-white"
+        : "border-transparent text-white/60 hover:border-white/40 hover:bg-white/[0.03] hover:text-white"
       }
     `}
   >

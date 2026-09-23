@@ -35,7 +35,7 @@ const Footer = () => {
           className="
             fixed
             bottom-5
-            right-5
+            right-6
             z-50
             flex
             h-11
