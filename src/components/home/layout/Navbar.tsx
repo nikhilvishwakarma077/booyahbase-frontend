@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, Search, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import Logo from "../../../assets/images/Logo.png"
 
@@ -63,7 +63,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Search */}
-        <div className="hidden md:flex">
+        {/* <div className="hidden md:flex">
           <button
             aria-label="Search"
             className="
@@ -83,11 +83,11 @@ const Navbar = () => {
           >
             <Search size={20} strokeWidth={1.8} />
           </button>
-        </div>
+        </div> */}
 
         {/* Mobile Actions */}
         <div className="flex items-center gap-1 md:hidden">
-          <button
+          {/* <button
             aria-label="Search"
             className="
               flex
@@ -102,7 +102,7 @@ const Navbar = () => {
             "
           >
             <Search size={20} strokeWidth={1.8} />
-          </button>
+          </button> */}
 
           <button
             aria-label="Open menu"
